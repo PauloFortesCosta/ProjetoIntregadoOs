@@ -1,0 +1,71 @@
+@charset "ISO-8859-1";
+
+   .container {
+            background: #FFF;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table-container {  
+            padding: 2em;
+            width: 100%;
+        }
+
+        .table_padrao {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px 10px 0px 0px;
+            overflow: hidden;
+        }
+
+        .table_padrao thead {
+            background-color: #fffaf5;
+            color: #E37922;
+            text-align: left;
+        }
+
+        .table_padrao thead tr th {
+            padding: .5em;
+            font-size: 1.3em;
+        }
+
+        .table_padrao tbody tr td {
+            color: #363636;
+            font-weight: bold;
+            padding: 1em;
+            font-size: 1.2em;
+            border-bottom: 1px solid #2929291d;
+        }
+
+        .table_padrao .t_acao {
+            text-align: center;
+            width: 15%;
+        }
+
+        .pesquisar_container form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: .5em;
+            margin-bottom: 1em;
+        }
+
+        .pesquisar_container input {
+            padding: .2em;
+            font-size: 1.2em;
+            border: 1px solid #ffa963;
+            border-radius: 5px;
+            color: #363636;
+        }
+
+        .pesquisar_container form select {
+            width: 250px;
+            padding: .2em .5em;
+            font-size: 1.2em;
+            border: 1px solid #ffa963;
+            border-radius: 5px;
+            box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.078)
+        }

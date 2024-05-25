@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordem Serviço</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <style>
+         * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1em;
+    }
+
+    header {
+        background-color: #fdfdfc;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 2em;
+        justify-content: space-between;
+        box-shadow: 0px 0px 20px rgba(255, 98, 0, 0.118);
+    }
+
+    header .link_logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #b10000;
+    }
+
+    header .link_logo img {
+        max-width: 80px;
+    }
+
+    header .menu {
+        list-style-type: none;
+        color: #E37922;
+        font-weight: bold;
+        font-size: 1.2em;
+        padding: 1em;
+    }
+
+    header .menu:hover .sub-menu {
+        display: flex;
+    }
+
+    header .menu .sub-menu {
+        background-color: #FFF;
+        padding: 1em;
+        font-size: 1em;
+        position: absolute;
+        right: 2%;
+        top: 12%;
+        min-height: 200px;
+        min-width: 150px;
+        border-radius: 5px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.099);
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        transition: .6s;
+    }
+
+    header .menu .sub-menu li {
+        list-style-type: none;
+    }
+
+
+    header .menu .sub-menu li a {
+        text-decoration: none;
+        transition: .5s;
+        color: #E37922;
+        padding: .2em 1em;
+        border-radius: 3px;
+    }
+
+    header .menu .sub-menu li a:hover {
+        background-color: #E37922;
+        color: #FFF;
+    }
+
+    .container {
+        min-height: 80vh;
+        background-image: url('fundo_phone.jpg');
+        background-size: cover;
+        display: flex;
+        padding: 2em;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer {
+        background-color: #382D27;
+        padding: 2em;       
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #E37922;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+
+    .card-branco {
+        background-color: #FFF;
+        max-width: 600px;
+        padding: 2em;
+        border-radius: 10px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.27);
+    }
+
+   h2 {
+        width: 100%;
+        text-align: center;
+        color: #363636;
+        margin-bottom: 2em;
+    }
+
+    h2 span {
+        color: #E37922;
+    }
+
+    .linha-input {
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        gap: 10px;
+        margin-bottom: 1em;
+    }
+
+    .linha-input label {
+        color: #984502;
+        font-weight: bold;
+    }
+
+    .linha-input input,
+    .linha-input select,
+    .linha-input textarea {
+        padding: .5em;
+        font-size: 1em;
+        border-radius: 5px;
+        border: 1px solid #e3792289;
+    }
+    
+    .equipamento-selecionar-container select, .cliente-selecionar-container select {
+    	min-width: 300px;
+    }
+
+    .btn {
+        background-color: #E37922;
+        color: #FFF;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        transition: .4s;
+        padding: .5em 1em;
+        max-width: 150px;
+    }
+
+    .btn:hover {
+        background-color: #FFF;
+        color: #E37922;
+        border-color: #E37922;
+    }
+
+    .equipamento-cadastro-container {
+        display: none;
+    }
+
+    .equipamento-selecionar-container {
+        display: none;
+    }
+
+    .cliente-cadastro-container {
+        display: none;
+    }
+
+    .cliente-selecionar-container {
+        display: none;
+    }
+    </style>
+
+    <style>  
+
+.header {
+	position: relative;
+	z-index: 2;
+}
+
+.container {
+    display: block;
+    padding: 0;
+}
+
+
+.card-branco {
+	position: relative;
+    min-height: 80vh;
+    width: 90%;
+    max-width: none;
+    margin: auto;
+    border-radius: 0;
+    box-shadow: none;
+    z-index: 0;
+}
+
+.btn_container {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+	min-height: 50px;
+}
+    </style>
+
+    <style>
+
+        .card-branco {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .card-branco article {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .card-branco article .btn_adicionar {
+            background-color: #FFF;
+            color: #E37922;
+            font-size: 1.2em;
+            border: 3px solid #ff7300;
+            padding: .3em .5em;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: bold;
+        }
+
+        .card-branco article .btn_adicionar span {
+            background-color: #E37922;
+            color: #FFF;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 200;
+            font-size: 1.3em;
+        }
+
+        .card-branco article .peca_container {            
+            background-color: #FFF;
+            min-width: 450px;
+            height: 350px;                    
+            border: 1px solid #ff5e00;
+            border-radius: 5px;
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .scroll {
+            max-height: 350px;
+        }
+
+        .card-branco article .peca_container .card_peca {
+            display: grid;
+            grid-template-columns: auto 20% 10%;
+        }
+
+        .card-branco article .peca_container .card_peca > * {
+            display: flex;
+            align-items: center;
+        }
+
+        .card-branco article .peca_container .card_peca button {
+            background-color: #ff0000;
+            color: #FFF;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: none;
+            font-weight: 200;
+            font-size: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-branco article .peca_container .card_peca button span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-branco section {    
+            flex-grow: 1;
+            margin: 0 1em;
+            padding: 0 1em;
+            min-width: 450px;
+        }
+
+        .card-branco section h3 {
+            color: #E37922;
+            margin: 1em 0;
+            font-size: 1.5em;
+        }
+
+        .card-branco section .card_detalhamento {   
+            width: 90%;
+            display: flex;
+            margin-left: 1em;
+            font-size: 1.2em;
+            display: grid;
+            grid-template-columns: 45% 10% 45%;
+        }
+
+        .card-branco section .card_detalhamento.aparelho {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn_container {
+            flex-basis: 100%;
+        }
+    </style>
+ 
+</head>
+<body>
+<header>
+    <a href="/ordem-servico/pages?acao=Home" class="link_logo">
+    <img src="logo_phone.png"/>
+        <h2>YourPhone</h2>
+    </a>
+
+    <ul class="menu">
+        <li>
+            Menu
+            <ul class="sub-menu">
+                <li><a href="${linkPage}Home">Home</a></li>
+                <li><a href="${linkPage}FormServico">Serviços</a></li>
+                <li><a href="${linkPage}PageFuncionarios">Funcionários</a></li>
+            </ul>
+        </li>
+    </ul>
+</header>
+    
+    <div class="container">
+        <div class="card-branco">
+           <article>
+            <button class="btn_adicionar"><span>+</span> Adicionar</button>
+            <div class="peca_container scroll">
+                <div class="card_peca">
+                    <p>Conector de Carregador</p>
+                    <p>R$<span>50,00</span></p>
+                    <button><span>-</span></button>
+                </div>
+                <div class="card_peca">
+                    <p>Câmera Frontal</p>
+                    <p>R$<span>150,00</span></p>
+                    <button><span>-</span></button>
+                </div>
+            </div>
+           </article>
+            <section>
+                <h3>Cliente</h3>
+                <div class="card_detalhamento">
+                    <p>Victor</p>
+                    <p style="text-align: center;">-</p>
+                    <p style="text-align: right;">61911112222</p>                     
+                </div>
+                <h3>Funcionário</h3>
+                <div class="card_detalhamento">
+                    <p>Jonas</p>
+                    <p style="text-align: center;">-</p>
+                    <p style="text-align: right;">jonas@email.com</p>                    
+                </div>
+                <h3>Aparelho</h3>
+                <div class="card_detalhamento aparelho">
+                    <p>Modelo - <span>SE</span></p>
+                    <p>Cor - <span>SE</span></p>
+                    <p>Marca - <span>Iphone</span></p>
+                </div>
+            </section>
+            <div class="btn_container">
+                <button class="btn">Finalizar Serviço</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; Direitos reservados á projetoProjeção</p>
+    </footer>
+    
+</body>
+</html>

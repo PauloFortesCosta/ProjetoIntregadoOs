@@ -1,0 +1,33 @@
+@charset "ISO-8859-1";
+
+.header {
+	position: relative;
+	z-index: 2;
+}
+
+.container {
+    display: block;
+    padding: 0;
+}
+
+
+.card-branco {
+	position: relative;
+    min-height: 80vh;
+    width: 90%;
+    max-width: none;
+    margin: auto;
+    border-radius: 0;
+    box-shadow: none;
+    z-index: 0;
+}
+
+.btn_container {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}

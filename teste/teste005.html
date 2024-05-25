@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card"><p class="valor_peca">244.00</p></div>
+        <div class="card"><p class="valor_peca">244.65</p></div>
+        <div class="card"><p class="valor_peca">23.99</p></div>
+        <div class="card"><p class="valor_peca">165.15</p></div>
+        <div class="card"><p class="valor_peca">544.00</p></div>
+    </div>
+</body>
+
+<script>
+    let teste = "244.00"    
+    
+    function formataMoedaReal(valor) {
+        valor = String(valor)
+        
+        const ValorPartes = valor.split('.');
+        return `R$${ValorPartes[0]},${ValorPartes[1]}`
+    }
+
+
+    document.querySelectorAll('.valor_peca').forEach((item) => {
+        item.innerHTML = formataMoedaReal(item.textContent)
+    })
+</script>
+</html>

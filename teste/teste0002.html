@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .modal_fundo {
+            background-color: #0d0d0d78;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 30;
+            visibility: hidden;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            outline: 0;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .modal_container {
+            background-color: #FFF;
+            padding: 1.5em;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+            box-shadow: 10px 10px 20px #0000003b;
+            min-width: 400px;
+        }
+
+        .btn_container {
+            width: 100%;
+            padding: 1em;
+            margin-top: 1em;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+    </style>
+
+    <div class="modal_fundo modal_teste1">
+        <div class="modal_container">
+            <div class="modal_conteudo">
+                <div class="teste1_container">
+                    <h2>Teste 1</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repudiandae accusamus officia quidem
+                        officiis. Fuga dignissimos impedit nesciunt quod quam debitis libero quis eaque! Harum quaerat assumenda
+                        earum iste dolor.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repudiandae accusamus officia quidem
+                        officiis. Fuga dignissimos impedit nesciunt quod quam debitis libero quis eaque! Harum quaerat assumenda
+                        earum iste dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum excepturi ex alias
+                        ducimus placeat dolores minus, velit nemo dolor adipisci delectus molestiae corporis voluptatibus eaque
+                        similique iusto porro magnam quia?</p>
+                </div>
+            </div>
+            <div class="btn_container">
+                <button class="btn" onclick="fecharModal('teste1')">Fechar</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal_fundo modal_teste2">
+        <div class="modal_container">
+            <div class="modal_conteudo">
+                <div class="teste2_container" style="display: none;">
+                    <h2>Teste 2</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repudiandae accusamus officia quidem
+                        officiis. Fuga dignissimos impedit nesciunt quod quam debitis libero quis eaque! Harum quaerat assumenda
+                        earum iste dolor.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repudiandae accusamus officia quidem
+                        officiis. Fuga dignissimos impedit nesciunt quod quam debitis libero quis eaque! Harum quaerat assumenda
+                        earum iste dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum excepturi ex alias
+                        ducimus placeat dolores minus, velit nemo dolor adipisci delectus molestiae corporis voluptatibus eaque
+                        similique iusto porro magnam quia?</p>
+                </div>
+            </div>
+            <div class="btn_container">
+                <button class="btn" onclick="fecharModal('teste2')">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="abrirModal(event, teste1Div, 'teste1', 'block')">Teste btn 1</button>
+    <button onclick="abrirModal(event, teste2Div, 'teste2', 'block')">Teste btn 2</button>
+    <script>
+        var teste1Div = document.querySelector('.teste1_container');
+        var teste2Div = document.querySelector('.teste2_container');
+
+
+        function abrirModal(e, divContainerFilha, modal, display) {
+            e.preventDefault();
+
+            const modalFundo = document.querySelector(`.modal_${modal}`);
+            const modalConteudo = modalFundo.querySelector('.modal_conteudo');
+
+            modalFundo.style.opacity = "1";
+            modalFundo.style.visibility = "visible";
+
+            divContainerFilha.style.display = display;
+            modalConteudo.appendChild(divContainerFilha);
+        }
+
+
+        function fecharModal(modal) {
+            const modalFundo = document.querySelector(`.modal_${modal}`);
+            const modalConteudo = modalFundo.querySelector('.modal_conteudo');
+
+            modalFundo.style.opacity = "0";
+            modalFundo.style.visibility = "hidden";           
+        }
+    </script>
+</body>
+
+</html>

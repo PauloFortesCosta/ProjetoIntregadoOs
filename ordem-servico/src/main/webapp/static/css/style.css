@@ -1,0 +1,208 @@
+ * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1em;
+    }
+
+    header {
+        background-color: #fdfdfc;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 2em;
+        justify-content: space-between;
+        box-shadow: 0px 0px 20px rgba(255, 98, 0, 0.118);
+    }
+
+    header .link_logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #b10000;
+    }
+
+    header .link_logo img {
+        max-width: 80px;
+    }
+
+    header .menu {
+        list-style-type: none;
+        color: #E37922;
+        font-weight: bold;
+        font-size: 1.2em;
+        padding: 1em;
+    }
+
+    header .menu:hover .sub-menu {
+        display: flex;
+    }
+
+    header .menu .sub-menu {
+        background-color: #FFF;
+        padding: 1em;
+        font-size: 1em;
+        position: absolute;
+        right: 2%;
+        top: 12%;
+        min-height: 200px;
+        min-width: 150px;
+        border-radius: 5px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.099);
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 32;
+        transition: .6s;
+    }
+
+    header .menu .sub-menu li {
+        list-style-type: none;
+    }
+
+
+    header .menu .sub-menu li a {
+        text-decoration: none;
+        transition: .5s;
+        color: #E37922;
+        padding: .2em 1em;
+        border-radius: 3px;
+    }
+
+    header .menu .sub-menu li a:hover {
+        background-color: #E37922;
+        color: #FFF;
+    }
+
+    .container {
+        min-height: 80vh;
+        background-image: url('../images/fundo_phone.jpg');
+        background-size: cover;
+        display: flex;
+        padding: 2em;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer {
+        background-color: #382D27;
+        padding: 2em;       
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #E37922;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+
+    .card-branco {
+        background-color: #FFF;
+        max-width: 600px;
+        padding: 2em;
+        border-radius: 10px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.27);
+    }
+
+   h2 {
+        width: 100%;
+        text-align: center;
+        color: #363636;
+        margin-bottom: 2em;
+    }
+
+    h2 span {
+        color: #E37922;
+    }
+
+    .linha-input {
+        display: flex;
+        flex-direction: column;
+        min-width: 280px;
+        gap: 10px;
+        margin-bottom: 1em;
+    }
+
+    .linha-input label {
+        color: #984502;
+        font-weight: bold;
+    }
+    
+    .linha-input label span {
+    	font-size: 1.5em;
+    	color: #ff0000;
+    }
+
+    .linha-input input,
+    .linha-input select,
+    .linha-input textarea {
+        padding: .5em;
+        font-size: 1em;
+        border-radius: 5px;
+        border: 1px solid #e3792289;
+    }
+
+    .linha-input.radio {
+        width: 100%;
+        margin-top: 1em;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .linha_link {
+        margin: 2em auto;   
+        text-align: center;     
+    }
+
+    .linha_link a {
+        text-decoration: none;
+        color: #E37922;
+    }
+    
+    form article {
+    	display: flex;
+    	gap: 10px;
+    }
+    
+    .equipamento-selecionar-container select, .cliente-selecionar-container select {
+    	min-width: 300px;
+    }
+
+    .btn {
+        background-color: #E37922;
+        color: #FFF;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        transition: .4s;
+        padding: .5em 1em;
+        max-width: 150px;
+    }
+
+    .btn:hover {
+        background-color: #FFF;
+        color: #E37922;
+        border-color: #E37922;
+    }
+
+    .equipamento-cadastro-container {
+        display: none;
+    }
+
+    .equipamento-selecionar-container {
+        display: none;
+    }
+
+    .cliente-cadastro-container {
+        display: none;
+    }
+
+    .cliente-selecionar-container {
+        display: none;
+    }

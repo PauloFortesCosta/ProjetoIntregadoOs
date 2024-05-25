@@ -1,0 +1,129 @@
+@charset "ISO-8859-1";
+
+   .card-branco {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .card-branco article {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .card-branco article .btn_adicionar {
+            background-color: #FFF;
+            color: #E37922;
+            font-size: 1.2em;
+            border: 3px solid #ff7300;
+            padding: .3em .5em;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: bold;
+            transition: .5s;
+        }
+
+        .card-branco article .btn_adicionar span {
+            background-color: #E37922;
+            color: #FFF;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 200;
+            font-size: 1.3em;
+        }
+        
+        .card-branco article .btn_adicionar:hover {
+            background-color: #E37922;
+            color: #FFF;
+            border-color: transparent;
+        }
+
+        .card-branco article .peca_container {            
+            background-color: #FFF;
+            min-width: 450px;
+            height: 350px;                    
+            border: 1px solid #ff5e00;
+            border-radius: 5px;
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .scroll {
+            max-height: 350px;
+        }
+
+        .card-branco article .peca_container .card_peca {
+            display: grid;
+            grid-template-columns: auto 20% 10%;
+        }
+
+        .card-branco article .peca_container .card_peca > * {
+            display: flex;
+            align-items: center;
+        }
+
+        .card-branco article .peca_container .card_peca a {
+            text-decoration: none;
+        }
+
+        .card-branco article .peca_container .card_peca button {
+            background-color: #ff0000;
+            color: #FFF;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: none;
+            font-weight: 200;
+            font-size: 1.2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-branco article .peca_container .card_peca button span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-branco section {    
+            flex-grow: 1;
+            margin: 0 1em;
+            padding: 0 1em;
+            min-width: 450px;
+        }
+
+        .card-branco section h3 {
+            color: #E37922;
+            margin: 1em 0;
+            font-size: 1.5em;
+        }
+
+        .card-branco section .card_detalhamento {   
+            width: 90%;
+            display: flex;
+            margin-left: 1em;
+            font-size: 1.2em;
+            display: grid;
+            grid-template-columns: 45% 10% 45%;
+        }
+
+        .card-branco section .card_detalhamento.aparelho {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn_container {
+            flex-basis: 100%;
+        }
